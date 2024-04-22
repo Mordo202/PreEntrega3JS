@@ -9,8 +9,7 @@ document.getElementById('inicioSesionForm').addEventListener('submit', function(
     if (nombreUsuarioLocal !== '' && numeroTelefono !== '') {
         console.log("Nombre de usuario:", nombreUsuarioLocal);
         console.log("Número de teléfono:", numeroTelefono);
-
-        // Guardar el nombre de usuario en el almacenamiento local
+        
         localStorage.setItem('nombreUsuario', nombreUsuarioLocal);
 
         const infoUsuario = {
@@ -60,7 +59,7 @@ window.onload = function() {
 
 function agregarAlCarrito(nombre, precio) {
     const nombreUsuario = localStorage.getItem('nombreUsuario');
-
+    
     if (nombreUsuario) {
         const productoIndex = carrito.findIndex(item => item.nombre === nombre);
         if (productoIndex !== -1) {
