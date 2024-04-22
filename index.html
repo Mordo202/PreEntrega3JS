@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¡Haz tus antojos realidad con nuestra experiencia de compra de donas en línea! Explora un catálogo irresistible de donas frescas, elige entre una variedad de sabores y coberturas, y realiza tu pedido con comodidad. Nuestro proceso de compra fácil y entrega rápida garantizan que tus donas favoritas lleguen a tu puerta frescas y listas para ser disfrutadas. ¡Convierte tus momentos cotidianos en celebraciones dulces con nuestras deliciosas creaciones! Ordena ahora y experimenta la felicidad en cada bocado.">
+    <meta name="keywords" content="donas frescas, variedad de sabores de donas, rellenas y glaseadas, donas gourmet, delicias dulces">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <title>Donas</title>
+</head>
+<body>
+    <h1 class="titulo-principal">Donnatello</h1>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li class="menu-item"><a href="./index.html">Home</a></li>
+                <li class="menu-item"><a href="./index.html">Donas</a></li>
+                <li class="menu-item"><a href="./index.html">Combos</a></li>
+                <li class="menu-item"><a href="./index.html">Contacto</a></li>
+                <li class="menu-item"><a href="./index.html">Sucursales</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form id="inicioSesionForm" class="inicioSesion">
+        <label for="nombreUsuario">Nombre:</label>
+        <input type="text" id="nombreUsuario" required>
+        <label for="telefonoUsuario">Número de Teléfono:</label>
+        <input type="tel" id="telefonoUsuario" required pattern="[0-9]{10}">
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    
+    <button id="cerrarSesionBtn" style="display: none;">Cerrar Sesión</button>
+    <div id="mensajeBienvenida" style="display: none;">¡Bienvenido!</div>
+
+    <main class="menu-donas">
+        <section class="donas">
+            <h2 class="titulo-donas">Variedades</h2>
+            <div class="donas-item">
+                <div class="dona" data-nombre="Chocolatosa" data-precio="1200">
+                    <h3 class="dona-title">Chocolatosa</h3>
+                    <p class="dona-descripcion">Hemos perfeccionado la receta para crear la dona de chocolate perfecta. Nuestro equipo de expertos chocolateros ha seleccionado los mejores ingredientes, utilizando cacao de alta calidad y combinándolo con una mezcla secreta de especias para lograr un sabor único y delicioso en cada mordisco. La textura esponjosa y la cobertura de chocolate exquisitamente suave te transportarán a un éxtasis de placer.</p>
+                    <img class="dona-img" src="../img/dona-chocolate.jfif" alt="dona-chocolate">
+                    <p class="dona-precio">$1200</p>
+                    <button class="boton-dona" onclick="agregarAlCarrito('Chocolatosa', 1200)">Agregar al carrito</button>
+                </div>
+                <div class="dona" data-nombre="FrutosDelBosque" data-precio="1200">
+                    <h3 class="dona-title">Frutos Del Bosque</h3>
+                    <p class="dona-descripcion">Nuestra dona de frutos del bosque es una sinfonía de sabores naturales, cuidadosamente seleccionados para ofrecerte lo mejor de la madre naturaleza en cada mordida. Desde las jugosas moras hasta las frescas frambuesas y arándanos, cada fruto se integra armoniosamente en nuestra masa esponjosa, creando una obra maestra culinaria que te transportará directamente al corazón de un bosque encantado.</p>
+                    <img class="dona-img" src="../img/Dona-Frutos-Del-Bosque.jfif" alt="dona-frutos-del-bosque">
+                    <p class="dona-precio">$1200</p>
+                    <button class="boton-dona" onclick="agregarAlCarrito('FrutosDelBosque', 1200)">Agregar al carrito</button>
+                </div>
+                <div class="dona" data-nombre="Glaceada" data-precio="1200">
+                    <h3 class="dona-title">Glaceada</h3>
+                    <p class="dona-descripcion">Nuestras donas glaceadas son obras maestras de indulgencia, cada una cuidadosamente bañada en una capa de glaseado celestial que se funde en tu boca. con su clásico sabor vainilla y su glaseado gourmet, te invitamos a explorar un universo de sabor único. <br>
+                    Sumérgete en un mundo donde cada dona glaceada es una obra maestra y cada bocado es un viaje hacia el éxtasis. 
+                    </p>
+                    <img class="dona-img" src="../img/dona-glaceada.jfif" alt="dona-glaceada">
+                    <p class="dona-precio">$1200</p>
+                    <button class="boton-dona" onclick="agregarAlCarrito('Glaceada', 1200)">Agregar al carrito</button>
+                </div>
+                <div class="dona" data-nombre="Confitada" data-precio="1200">
+                    <h3 class="dona-title">Confitada</h3>
+                    <p class="dona-descripcion">Nuestra dona confitada es una obra maestra de texturas perfectamente equilibradas. La masa esponjosa se combina con una capa generosa de chocolate artesanal que se solidifica en una cobertura crujiente, creando una experiencia única en cada mordida. La dulzura profunda y rica de sus confites se mezcla armoniosamente con la suavidad de la dona, brindándote un sabor único en cada bocado.</p>
+                    <img class="dona-img" src="../img/dona-confitada.jfif" alt="dona-confitada">
+                    <p class="dona-precio">$1200</p>
+                    <button class="boton-dona" onclick="agregarAlCarrito('Confitada', 1200)">Agregar al carrito</button>
+                </div>
+            </div>
+        </section>
+        <div class="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <button onclick="vaciarCarrito()" class="button-vaciar-carrito">Vaciar Carrito</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-1">
+            <p>Copyright © 2023 Todos los derechos reservados. Donnatello.</p>
+        </div>
+            <div class="footer-2">
+                <ul>
+                    <li class="footer-link"><a href="./index.html">Home</a></li>
+                    <li class="footer-link"><a href="./index.html">Contacto<a><li>
+                    <li class="footer-link"><a href="./index.html">Sucursales</a></li>
+                </ul>
+            </div>
+            <div class="footer-3">
+                <ul>
+                    <li><i class="icon-red-social bi bi-facebook"></i></li>
+                    <li><i class="icon-red-social bi bi-instagram"></i></li>
+                    <li><i class="icon-red-social bi bi-twitter"></i></li>
+                </ul>
+            </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

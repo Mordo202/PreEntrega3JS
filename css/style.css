@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+
+/*GENERALES*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lilita One', sans-serif;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(111, 33, 163);
+}
+
+body{
+    background-color: wheat;
+}
+
+/*HEADER*/
+
+header{
+    background-image: url(../img/fondo\ links.jpg);
+    background-size: contain;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    .menu{
+    display: flex;
+    padding: 2rem 1rem;
+    gap: 5rem;
+    font-size: 2.8rem;
+    }
+
+    .menu-item :hover{
+    color: rgb(111, 84, 211);
+
+}
+
+
+.titulo-principal{
+    background-image: url(../img/fondo\ prueba.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+    color: rgba(201, 109, 193, 0.925);
+    font-family: 'Lobster', sans-serif;
+    font-size: 10rem;
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+.titulo2{
+    font-size: 4rem;
+    color: rgb(184, 71, 184);
+    padding: 15px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    border-style: ridge;
+    border-width: 0.5rem;
+    border-color: rgba(141, 25, 141, 0.589);
+    border-radius: 4rem;
+}
+
+/*INICIO SESION*/
+
+.inicioSesion{
+    padding: 2rem;
+    font-size: 2rem;
+    color: rgb(119, 50, 175);
+}
+
+
+/*DONAS*/
+
+.donas{
+    padding: 3rem;
+    background-color: wheat;
+    font-size: 1.6rem;
+}
+
+.titulo-donas{
+    color: rgb(119, 50, 175);
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.donas-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.dona{
+    width: 30rem;    
+    background-color: white;
+    padding: 3rem;
+    border-radius: 2rem;
+}
+
+    .dona-title{
+    text-align: center;    
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: purple;
+    border-style: groove;
+}
+
+.dona-img:hover{
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    width: 20rem;
+    transform: scale(1.1);
+}
+
+.dona-precio{
+    margin-top: 1.5rem;
+    padding-left: 4rem;
+    font-size: 2rem;
+    color: purple;
+}
+
+.dona-descripcion{
+    color: rebeccapurple;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.boton-dona{
+    margin-top: 1.5rem;
+    padding: 1rem;
+    display: inline-block;
+    color: rgb(138, 20, 216);
+    font-size: 2rem;
+    }
+
+.carrito{
+    margin: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    color: rgb(133, 76, 3);
+}
+
+.button-vaciar-carrito {
+    font-size: 1.5rem;
+}
+
+/*FOOTER*/
+
+.footer{
+    background-color: black;
+    color: violet;
+    padding: 1.5rem;
+    display: flex;
+}
+    .footer-1{
+    flex: 3;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer-2{
+    flex: 2;
+    font-size: 1.5rem;
+    }
+
+.footer-link :hover{
+    color: violet;
+}
+
+.footer-3{
+    flex: .5;
+}
+
+.icon-red-social{
+    font-size: 1.5rem;
+}
+
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 800px) {
+    .titulo2 {
+        font-size: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        padding: 10px;
+        border-width: 0.3rem;
+        border-radius: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 799px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-image: none;
+        background-color: pink;
+    }
+
+    .titulo-principal{
+        background-size: 100%;
+        font-size: 6rem;
+    }
+
+    .menu{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        border-style: dotted;
+    }
+
+    .menu-item{
+        font-size: 4rem;
+        margin-bottom: 3px;
+        background-image: url(../img/fondo\ links.jpg);
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1100px) {
+
+    header{
+        background-size: 30rem;
+        background-position: center;
+
+        .menu{
+        align-items: center;
+        gap: 2rem;
+
+        .menu-item{
+        font-size: 2.1rem;
+        padding-left: 1rem;
+    }
+    }
+    }
+}
+
+.titulo-principal{
+        background-size: 100%;
+        padding: 3rem 1rem;
+    }
+
+
+
+@media screen and (max-width: 480px) {
+    .parrafo-index{
+        padding-left: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 799px) {
+    .donas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .titulo-donas{
+            padding-left: 1rem;
+        }
+
+        .donas-item{
+
+
+            .dona{
+        flex-direction: column;
+
+        .boton-dona{
+            padding-left: 7rem;
+            color: rgb(138, 20, 216);
+        }
+
+        .dona-precio{
+            padding-left: 9rem;
+            font-size: 2.5rem;
+        }
+        }
+        }
+
+        .dona-img{
+            padding-left: 5rem;
+        }
+        }
+
+}
