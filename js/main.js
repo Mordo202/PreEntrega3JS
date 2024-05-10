@@ -1,7 +1,7 @@
 let carrito = [];
 let nombreUsuarioGlobal = localStorage.getItem('nombreUsuario');
 
-document.getElementById('inicioSesionForm').addEventListener('submit', function(event) {
+document.getElementById('inicioSesionForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const nombreUsuarioLocal = document.getElementById('nombreUsuario').value.trim();
     const numeroTelefono = document.getElementById('telefonoUsuario').value.trim();
@@ -9,7 +9,7 @@ document.getElementById('inicioSesionForm').addEventListener('submit', function(
     if (nombreUsuarioLocal !== '' && numeroTelefono !== '') {
         console.log("Nombre de usuario:", nombreUsuarioLocal);
         console.log("Número de teléfono:", numeroTelefono);
-        
+
         localStorage.setItem('nombreUsuario', nombreUsuarioLocal);
 
         const infoUsuario = {
@@ -25,7 +25,7 @@ document.getElementById('inicioSesionForm').addEventListener('submit', function(
     }
 });
 
-document.getElementById('cerrarSesionBtn').addEventListener('click', function() {
+document.getElementById('cerrarSesionBtn').addEventListener('click', function () {
     cerrarSesion();
 });
 
@@ -38,28 +38,44 @@ function mostrarSesionActiva() {
 }
 
 function cerrarSesion() {
+    const nombreUsuario = localStorage.getItem('nombreUsuario');
     localStorage.removeItem('infoUsuario');
     localStorage.removeItem('nombreUsuario');
     document.getElementById('inicioSesionForm').style.display = 'block';
     document.getElementById('cerrarSesionBtn').style.display = 'none';
-    vaciarCarrito();
+
+    if (nombreUsuario) {
+        mostrarToast(`${nombreUsuario} cerró sesión`);
+    }
+
+    if (carrito.length > 0) {
+        vaciarCarrito();
+    }
 }
 
 function mostrarMensajeBienvenida(nombreUsuario) {
     const mensajeBienvenida = document.getElementById('mensajeBienvenida');
-    mensajeBienvenida.textContent = `¡Bienvenido, ${nombreUsuario}!`;
     mensajeBienvenida.style.display = 'block';
+
+    Swal.fire({
+        title: '¡Bienvenido/a!',
+        text: `${nombreUsuario}`,
+        icon: 'success',
+        confirmButtonText: '¡Gracias!'
+    });
+
+    mostrarToast(`Has iniciado sesión como ${nombreUsuario}`);
 }
 
 //Carrito de compras.
 
-window.onload = function() {
+window.onload = function () {
     cargarCarritoDesdeLocalStorage();
 };
 
 function agregarAlCarrito(nombre, precio) {
     const nombreUsuario = localStorage.getItem('nombreUsuario');
-    
+
     if (nombreUsuario) {
         const productoIndex = carrito.findIndex(item => item.nombre === nombre);
         if (productoIndex !== -1) {
@@ -70,6 +86,7 @@ function agregarAlCarrito(nombre, precio) {
         guardarCarritoEnLocalStorage();
         mostrarCarrito();
         console.log(`${nombreUsuario} agregó ${nombre} al carrito.`);
+        mostrarToast("Producto agregado al carrito");
     } else {
         console.log("Por favor, inicia sesión para agregar productos al carrito.");
     }
@@ -104,6 +121,7 @@ function vaciarCarrito() {
     guardarCarritoEnLocalStorage();
     mostrarCarrito();
     console.log(`${nombreUsuarioGlobal} vació el carrito.`);
+    mostrarToast("El carrito se vació");
 }
 
 function guardarCarritoEnLocalStorage() {
@@ -141,4 +159,38 @@ function disminuirCantidad(nombre) {
         mostrarCarrito();
         console.log(`${nombreUsuarioGlobal} disminuyó la cantidad de ${nombre} en el carrito.`);
     }
+}
+
+
+function obtenerDatosDonas() {
+    fetch("./js/donas.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No se pudieron obtener los datos de las donas');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Datos de las donas:', data);
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos de las donas:', error);
+        });
+}
+
+obtenerDatosDonas();
+
+function mostrarToast(mensaje) {
+    Toastify({
+        text: mensaje,
+        duration: 3000,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to right,#CC6CE3, #D092DF )",
+        },
+        onClick: function () { }
+    }).showToast();
 }

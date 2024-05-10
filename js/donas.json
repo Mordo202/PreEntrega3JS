@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "titulo": "Chocolatosa",
+        "precio": 1200
+    },
+    {
+        "id": 2,
+        "titulo": "Frutos-del-bosque",
+        "precio": 1200
+    },
+    {
+        "id": 3,
+        "titulo": "Glaceada",
+        "precio": 1200
+    },
+    {
+        "id": 4,
+        "titulo": "Confitada",
+        "precio": 1200
+    }
+]

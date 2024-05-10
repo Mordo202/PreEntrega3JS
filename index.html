@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="¡Haz tus antojos realidad con nuestra experiencia de compra de donas en línea! Explora un catálogo irresistible de donas frescas, elige entre una variedad de sabores y coberturas, y realiza tu pedido con comodidad. Nuestro proceso de compra fácil y entrega rápida garantizan que tus donas favoritas lleguen a tu puerta frescas y listas para ser disfrutadas. ¡Convierte tus momentos cotidianos en celebraciones dulces con nuestras deliciosas creaciones! Ordena ahora y experimenta la felicidad en cada bocado.">
     <meta name="keywords" content="donas frescas, variedad de sabores de donas, rellenas y glaseadas, donas gourmet, delicias dulces">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <title>Donas</title>
@@ -27,11 +28,11 @@
         <input type="text" id="nombreUsuario" required>
         <label for="telefonoUsuario">Número de Teléfono:</label>
         <input type="tel" id="telefonoUsuario" required pattern="[0-9]{10}">
-        <button type="submit">Iniciar Sesión</button>
+        <button type= "submit" class="botonInicioSesion">Iniciar Sesión</button>
     </form>
     
     <button id="cerrarSesionBtn" style="display: none;">Cerrar Sesión</button>
-    <div id="mensajeBienvenida" style="display: none;">¡Bienvenido!</div>
+    <div id="mensajeBienvenida" style="display: none;"></div>
 
     <main class="menu-donas">
         <section class="donas">
@@ -96,7 +97,8 @@
                 </ul>
             </div>
     </footer>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
